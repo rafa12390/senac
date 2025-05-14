@@ -1,0 +1,30 @@
+import kotlin.random.Random
+
+fun calcularIMC(peso: Double, altura: Double): Double {
+    return peso / (altura * altura)
+}
+
+fun classificarIMC(imc: Double): String {
+    return when {
+        imc < 18.5 -> "Abaixo do peso"
+        imc in 18.5..24.9 -> "Peso normal"
+        imc in 25.0..29.9 -> "Sobrepeso"
+        imc in 30.0..34.9 -> "Obesidade grau 1"
+        imc in 35.0..39.9 -> "Obesidade grau 2"
+        else -> "Obesidade grau 3"
+    }
+}
+
+fun main() {
+    for (i in 1..5) {
+        val peso = Random.nextDouble(40.0, 120.0)
+        val altura = Random.nextDouble(1.50, 1.90)
+
+        val imc = calcularIMC(peso, altura)
+        val classificacao = classificarIMC(imc)
+
+        println("Pessoa $i:")
+        println("Peso: %.2f kg, Altura: %.2f m".format(peso, altura))
+        println("IMC: %.2f - $classificacao\n".format(imc))
+    }
+}
