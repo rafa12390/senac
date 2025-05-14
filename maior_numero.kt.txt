@@ -1,0 +1,14 @@
+import kotlin.random.Random
+
+fun maiorNumero(a: Int, b: Int): Int {
+    return if (a > b) a else b
+}
+
+fun main() {
+    val numero1 = Random.nextInt(1, 101) 
+    val numero2 = Random.nextInt(1, 101) 
+
+    println("Número 1: $numero1")
+    println("Número 2: $numero2")
+    println("O maior número é: ${maiorNumero(numero1, numero2)}")
+}
