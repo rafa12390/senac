@@ -1,0 +1,28 @@
+import kotlin.random.Random
+
+fun gerarNotas(): List<Int> {
+    // Gera três notas aleatórias entre 0 e 10
+    return List(3) { Random.nextInt(0, 11) }
+}
+
+fun calcularMedia(notas: List<Int>): Double {
+    return notas.average()
+}
+
+fun situacaoAluno(media: Double): String {
+    return when {
+        media >= 9 -> "PD" 
+        media >= 7 -> "ED" 
+        else -> "ND"      
+    }
+}
+
+fun main() {
+    val notas = gerarNotas()
+    val media = calcularMedia(notas)
+    val situacao = situacaoAluno(media)
+
+    println("Notas: $notas")
+    println("Média: %.2f".format(media))
+    println("Situação: $situacao")
+}
